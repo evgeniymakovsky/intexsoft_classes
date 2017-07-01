@@ -9,11 +9,12 @@ public class SnakeStyleMatrix {
 
     /**
      * Main method
-     *
-     * @param args
      */
     public static void main(String[] args) {
-        printMatrix(snakeArrayFill(10, 10));
+        long startTime = System.currentTimeMillis();
+        printMatrix(snakeArrayFill(10, 10, true));
+        long endTime = System.currentTimeMillis();
+        System.out.println("Program done in: " + (endTime - startTime) + " ms.");
     }
 
     /**
@@ -23,7 +24,7 @@ public class SnakeStyleMatrix {
      * @param second capacity of second array
      * @return snake style filled matrix
      */
-    public static int[][] snakeArrayFill(int first, int second) {
+    public static int[][] snakeArrayFill(int first, int second, boolean isPositive) {
         int[][] matrix = new int[first][second];
         int counter = 1;
         int x = 0;
@@ -36,7 +37,7 @@ public class SnakeStyleMatrix {
                     y--;
                     break;
                 }
-                matrix[x][y] = counter;
+                matrix[x][y] = signAlter(counter, isPositive);
                 counter++;
                 if (y != second - 1) y++;
                 else {
@@ -51,7 +52,7 @@ public class SnakeStyleMatrix {
                     y--;
                     break;
                 }
-                matrix[x][y] = counter;
+                matrix[x][y] = signAlter(counter, isPositive);
                 counter++;
                 if (x != first - 1) x++;
                 else {
@@ -66,7 +67,7 @@ public class SnakeStyleMatrix {
                     y++;
                     break;
                 }
-                matrix[x][y] = counter;
+                matrix[x][y] = signAlter(counter, isPositive);
                 counter++;
                 if (y != 0) y--;
                 else {
@@ -81,7 +82,7 @@ public class SnakeStyleMatrix {
                     y++;
                     break;
                 }
-                matrix[x][y] = counter;
+                matrix[x][y] = signAlter(counter, isPositive);
                 counter++;
                 if (x != 0) x--;
                 else {
@@ -96,11 +97,25 @@ public class SnakeStyleMatrix {
     /**
      * This method prints matrix in console
      *
-     * @param matrix
+     * @param matrix to print
      */
     public static void printMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             System.out.println(Arrays.toString(matrix[i]));
         }
+    }
+
+    /**
+     * Method signAlter change sign of number
+     *
+     * @param count      current value of counter
+     * @param isPositive true if you want positive number, false if negative
+     * @return positive or negative value
+     */
+    public static int signAlter(int count, boolean isPositive) {
+        if (!isPositive) {
+            String string = "-" + String.valueOf(count);
+            return Integer.parseInt(string);
+        } else return count;
     }
 }
