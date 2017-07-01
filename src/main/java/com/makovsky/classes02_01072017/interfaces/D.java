@@ -1,7 +1,23 @@
-package classes02_01072017.interfaces;
+package com.makovsky.classes02_01072017.interfaces;
 
 /**
- * Created by mak on 1.7.17.
+ * Class D implements A and B
  */
-public class D {
+public class D implements A, B {
+
+    @Override
+    public void doSomething() {
+        System.out.println("Hello World!");
+    }
+
+
+    @Override
+    public void doSomethingForB() {
+        System.out.println("B");
+    }
+
+    @Override
+    public void doSomethingForA() {
+        System.out.println("A");
+    }
 }

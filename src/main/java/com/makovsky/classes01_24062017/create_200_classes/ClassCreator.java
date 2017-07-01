@@ -1,4 +1,4 @@
-package classes01_24062017.create_200_classes;
+package com.makovsky.classes01_24062017.create_200_classes;
 
 import java.io.File;
 import java.io.FileOutputStream;

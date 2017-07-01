@@ -1,4 +1,4 @@
-package classes02_01072017;
+package com.makovsky.classes02_01072017;
 
 import java.util.Arrays;
 

@@ -1,7 +1,9 @@
-package classes02_01072017.interfaces;
+package com.makovsky.classes02_01072017.interfaces;
 
 /**
- * Created by mak on 1.7.17.
+ * Interface A extends C
  */
-public interface A {
+public interface A extends C {
+
+    public void doSomethingForA();
 }
